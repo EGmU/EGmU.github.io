@@ -22,43 +22,6 @@
          height: 32px;
          width: 32px;
          }
-  $t: 0.8s
-$d: $t / 5
-
-$c1: #13293d
-$c2: #006494
-$c3: #1b98e0
-
-svg
-  height: 0px
-  width: 0px
-
-@keyframes loader
-  50%
-    transform: translateY(-16px)
-    background-color: $c3
-body
-  background-color: $c1
-  margin: 0
-  
-.loader
-  filter: url('#goo')
-  width: 100px
-  margin: 0 auto
-  position: relative
-  top: 50vh
-  transform: translateY(-10px)
-  > div
-    float: left
-    height: 20px
-    width: 20px
-    border-radius: 100%
-    background-color: $c2
-    animation: loader $t infinite 
-    
-@for $i from 1 through 5
-  .loader > div:nth-child(#{$i})
-    animation-delay: $i * $d
       </style>
    </head>
    <body>
@@ -68,22 +31,5 @@ body
       <a target="_blank" href="https://github.com/EGmU"><img src="https://i.imgur.com/0npllN4.png"></img></a>
       <a target="_blank" href="https://twitter.com/emilgustvvsson"><img src="https://image.flaticon.com/icons/svg/54/54879.svg"></img></a>      
       <a target="_blank" href="https://facebook.com/prohaxxarn"><img src="https://cdn.onlinewebfonts.com/svg/img_432951.png"></img></a>      
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-  <defs>
-    <filter id="goo">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -10" result="goo" />
-      <feBlend in="SourceGraphic" in2="goo" operator="atop" />
-    </filter>
-  </defs>
-</svg>
-<div class="loader">
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
-
 </body>
 </html>
