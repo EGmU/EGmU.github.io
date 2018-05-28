@@ -22,192 +22,68 @@
          height: 32px;
          width: 32px;
          }
-         $pizzaWidth : 50px;
-$pizzaHeight : 50px;
-$innerSliceHeight : 40px;
-$innerSliceWidth : 40px;
-$tomatoWidth : 8px;
-$tomatoHeight : 8px;
-$chilliWidth : 4px;
-$chilliHeight : 15px; 
-*{
-  box-sizing : border-box;  
-}
-@keyframes SlideSlice{
-  0% { transform : translateX(0px) translateY(0)}
-  50% {transform : translateX(-5px) translateY(-5px)}
-  100%{transform : translateX(0px) translateY(0px)}
-}
-@keyframes SlideSliceRight{
-  0% { transform : rotate(90deg) translateX(0px) translateY(0)}
-  50% {transform : rotate(90deg) translateX(-5px) translateY(-5px) }
-   100%{transform : rotate(90deg) translateX(0px) translateY(0px)}
-}
+  $t: 0.8s
+$d: $t / 5
 
-@keyframes SlideSliceLeftDown{
-  0% { transform : rotate(270deg) translateX(0px) translateY(0)}
-  50% {transform : rotate(270deg) translateX(-5px) translateY(-5px) }
-   100%{transform :rotate(270deg) translateX(0px) translateY(0px)}
-}
+$c1: #13293d
+$c2: #006494
+$c3: #1b98e0
 
-@keyframes SlideSliceRightDown{
-  0% { transform : rotate(180deg) translateX(0px) translateY(0)}
-  50% {transform : rotate(180deg) translateX(-5px) translateY(-5px) }
-   100%{transform :rotate(180deg) translateX(0px) translateY(0px)}
-}
-.container{
-   width : 120px;
-   position : absolute ;
-   top : 50%;
-   margin-top : -25px;
-   left :50%;  
-   margin-left : -25px;
-  .pizzaSlice{
-    display : inline-block;
-    width : $pizzaWidth;
-    height : $pizzaHeight;
-    background-color : #695016;
-    position : relative;
-    border-radius : $pizzaWidth 0px 5px 0px;
+svg
+  height: 0px
+  width: 0px
 
-    .innerSlice{
-      width : $innerSliceWidth;
-      height : $innerSliceHeight;
-      background-color : #F6CB0F;
-      position : absolute;
-       border-radius : $pizzaWidth 0px 5px 0px;
-      right : 0px;
-      bottom : 0px;
-      .tomato1
-      ,.tomato2
-      ,.tomato3{
-           width : $tomatoWidth;
-           height : $tomatoHeight;
-           background-color : #B9330D;
-           position : absolute;
-           border-radius : 8px;
-       }
-      .tomato1{
-         bottom : 5px;
-         left : 10px;
-      }
-      .tomato2{
-         bottom : 17px;
-         left : 25px;
-      }
-      .tomato3{
-         bottom : 23px;
-         left : 15px;
-      }
-      .chilli1
-      ,.chilli2
-      ,.chilli3{
-            width:$chilliWidth;
-            height:$chilliHeight;
-            background-color : green;
-            position : absolute;
-            border-radius : 4px ;
-      }
-      .chilli1{
-             top : 3px;
-             left : 31px;
-             transform : rotate(-25deg);
-      }
-      .chilli2{
-            top : 15px;
-            left : 12px;
-            transform : rotate(270deg);
-      }
-      .chilli3{
-            top : 25px;
-            left : 30px;
-            transform : rotate(40deg);
-      }
-    } 
-   }
-  .pizzaSlice1{
-    animation-name : SlideSlice;
-    animation-duration : 1s;
-    animation-iteration-count : infinite;
-    animation-delay : 0.1s;
-  }
-  .pizzaSlice2{
-    transform : rotate(90deg);
-    animation-name : SlideSliceRight;
-    animation-duration : 1s;
-    animation-iteration-count : infinite;
-    animation-delay : 0.2s;
-  }
-  .pizzaSlice3{
-    transform : rotate(270deg);
-    animation-name : SlideSliceLeftDown;
-    animation-duration : 1s;
-    animation-iteration-count : infinite;
-    animation-delay : 0.4s;
-  }
-  .pizzaSlice4{
-    transform : rotate(180deg);
-    animation-name : SlideSliceRightDown;
-    animation-duration : 1s;
-    animation-iteration-count : infinite;
-    animation-delay : 0.3s;
-  }
+@keyframes loader
+  50%
+    transform: translateY(-16px)
+    background-color: $c3
+body
+  background-color: $c1
+  margin: 0
   
-}
-  
+.loader
+  filter: url('#goo')
+  width: 100px
+  margin: 0 auto
+  position: relative
+  top: 50vh
+  transform: translateY(-10px)
+  > div
+    float: left
+    height: 20px
+    width: 20px
+    border-radius: 100%
+    background-color: $c2
+    animation: loader $t infinite 
+    
+@for $i from 1 through 5
+  .loader > div:nth-child(#{$i})
+    animation-delay: $i * $d
       </style>
    </head>
    <body>
-            <div>
       <h1>Emil</h1>
       <h2>Gustavsson</h2>
       <p>Visit me on</p>
       <a target="_blank" href="https://github.com/EGmU"><img src="https://i.imgur.com/0npllN4.png"></img></a>
       <a target="_blank" href="https://twitter.com/emilgustvvsson"><img src="https://image.flaticon.com/icons/svg/54/54879.svg"></img></a>      
       <a target="_blank" href="https://facebook.com/prohaxxarn"><img src="https://cdn.onlinewebfonts.com/svg/img_432951.png"></img></a>      
-     </div>
-<div class = "container">
-  <div class = "pizzaSlice pizzaSlice1">
-    <div class = "innerSlice">
-      <div class = "tomato1"></div>
-      <div class = "tomato2"></div>
-      <div class = "tomato3"></div>
-      <div class ="chilli1"></div>
-      <div class ="chilli2"></div>
-      <div class ="chilli3"></div>
-    </div>
-  </div>
-  <div class = "pizzaSlice pizzaSlice2">
-    <div class = "innerSlice">
-      <div class = "tomato1"></div>
-      <div class = "tomato2"></div>
-      <div class = "tomato3"></div>
-      <div class ="chilli1"></div>
-      <div class ="chilli2"></div>
-      <div class ="chilli3"></div>
-    </div>
-  </div>
-  <div class = "pizzaSlice pizzaSlice3">
-    <div class = "innerSlice">
-      <div class = "tomato1"></div>
-      <div class = "tomato2"></div>
-      <div class = "tomato3"></div>
-      <div class ="chilli1"></div>
-      <div class ="chilli2"></div>
-      <div class ="chilli3"></div>
-    </div>
-  </div>
-  <div class = "pizzaSlice pizzaSlice4">
-    <div class = "innerSlice">
-      <div class = "tomato1"></div>
-      <div class = "tomato2"></div>
-      <div class = "tomato3"></div>
-      <div class ="chilli1"></div>
-      <div class ="chilli2"></div>
-      <div class ="chilli3"></div>
-    </div>
-  </div>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -10" result="goo" />
+      <feBlend in="SourceGraphic" in2="goo" operator="atop" />
+    </filter>
+  </defs>
+</svg>
+<div class="loader">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
 </div>
-  
+
 </body>
 </html>
