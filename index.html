@@ -22,6 +22,90 @@
          height: 32px;
          width: 32px;
          }
+         body {
+  background: #56c8d8; 
+}
+
+.content {
+  position: absolute;
+  top: 45%;
+  left: 57.5%;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+
+.paddle{
+  height:40px;
+  width:3px;
+  background-color:white;
+  position:relative;
+}
+
+.player_one{
+  @extend .paddle;
+  left:-180px;
+  animation: movePaddleOne 4s infinite;
+}
+
+.player_two{
+  @extend .paddle;
+  left:20px;
+  animation: movePaddleTwo 4s infinite;
+}
+
+.ball{
+  position:relative;
+  height:5px;
+  width:5px;
+  border-radius:50%;
+  background-color:white;
+  animation: moveBall 4s infinite linear;
+}
+
+@keyframes movePaddleOne{
+  0%, 100%{
+    transform:translate(0px, 100px);
+  }
+  25%{
+    transform:translate(0px, 0px);
+  }
+  50%{
+    transform:translate(0px, 0px);
+  }
+  75%{
+    transform:translate(0px, 100px);
+  }
+}
+
+@keyframes movePaddleTwo{
+  0%, 100%{
+     transform:translate(0px,-50px);
+  }
+  25%{
+       transform:translate(0px,10px); 
+  }
+  50%{
+        transform:translate(0px,0px);
+  }
+  75%{
+        transform:translate(0px,50px);
+  } 
+}
+
+@keyframes moveBall{
+   0%, 100%{
+    transform:translate(-180px, 30px);
+  }
+  25%{
+      transform:translate(18px, -25px);
+  }
+ 50%{
+     transform:translate(-180px, -55px);
+  }
+  75%{
+    transform:translate(18px, 15px);
+  }
+}
       </style>
    </head>
    <body>
@@ -31,5 +115,10 @@
       <a target="_blank" href="https://github.com/EGmU"><img src="https://i.imgur.com/0npllN4.png"></img></a>
       <a target="_blank" href="https://twitter.com/emilgustvsson"><img src="https://image.flaticon.com/icons/svg/54/54879.svg"></img></a>      
       <a target="_blank" href="https://facebook.com/prohaxxarn"><img src="https://cdn.onlinewebfonts.com/svg/img_432951.png"></img></a>      
+<div class="content">
+  <div class="player_one"></div>
+  <div class="player_two"></div>
+  <div class="ball"></div>
+</div>
 </body>
 </html>
